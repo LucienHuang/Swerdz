@@ -87,7 +87,7 @@ io.on('connection', function (socket) {
           // analyzeSyntaxOfText(message, obj);
           language.detectSyntax(message)
               .then(function (results) {
-
+                console.log(results);
                   var newSentence = "";
                   console.log(results[0][0].text);
                   for (var n = 0; n < results[0].length; n++) {
