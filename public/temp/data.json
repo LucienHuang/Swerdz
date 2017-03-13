@@ -11,7 +11,13 @@
         "girl",
         "Lucien",
         "king",
-        "shit"
+        "shit",
+        "damn",
+        "god",
+        "someone",
+        "bush",
+        "show",
+        "war"
     ],
     "verb": [
         "suck",
@@ -21,7 +27,11 @@
         "love",
         "are",
         "do",
-        "fuck"
+        "fuck",
+        "give",
+        "kidding",
+        "doing",
+        "turn"
     ],
     "adj": [
         "attractive",
@@ -37,24 +47,30 @@
         "i",
         "me",
         "they",
-        "what"
+        "what",
+        "my"
     ],
     "adv": [
         "very",
         "back",
         "well",
         "now",
-        "so"
+        "so",
+        "n't",
+        "really",
+        "right"
     ],
     "det": [
         "a",
         "the",
-        "this"
+        "this",
+        "there"
     ],
     "adp": [
         "because",
         "to",
-        "that"
+        "that",
+        "in"
     ],
     "conj": [
         "and",
@@ -79,6 +95,9 @@
         "hahaha",
         "haha",
         "oh",
-        "hey"
+        "hey",
+        "abcdefghijklmnopqrst",
+        "yeah",
+        "12"
     ]
 }

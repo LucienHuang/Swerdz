@@ -78,21 +78,21 @@ io.on('connection', function (socket) {
           // var words = randomWord.changeWord(data, obj);
 
           isWord = true;
-          console.log(obj);
+          // console.log(obj);
           var message = data;
           // var words = obj.noun;
           console.log("data: " + data);
-          console.log("obj: " + obj);
+          // console.log("obj: " + obj);
 
           // analyzeSyntaxOfText(message, obj);
           language.detectSyntax(message)
               .then(function (results) {
-                console.log(results);
+                console.log("Start analyzing");
                   var newSentence = "";
-                  console.log(results[0][0].text);
+                  // console.log(results[0][0].text);
                   for (var n = 0; n < results[0].length; n++) {
 
-                      if (results[0][n].text.length < 25) {
+                      if (results[0][n].text.length < 16) {
                           console.log(results[0][n].tag + ' ' + results[0][n].text);
                           if (results[0][n].tag == "NOUN") {
                               // console.log(obj);
@@ -106,10 +106,6 @@ io.on('connection', function (socket) {
                                   obj.noun.push(results[0][n].text);
 
                                   jsonfile.writeFile(file, obj, function (err) {
-                                      // console.error(err);
-                                  });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -127,10 +123,6 @@ io.on('connection', function (socket) {
                                   jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
-                                      // console.error(err);
-                                  });
                               }
                           } else if (results[0][n].tag == "PRON"||results[0][n]=="what") {
                               // console.log(obj);
@@ -144,10 +136,6 @@ io.on('connection', function (socket) {
                                   obj.pron.push(results[0][n].text);
 
                                   jsonfile.writeFile(file, obj, function (err) {
-                                      // console.error(err);
-                                  });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -165,10 +153,6 @@ io.on('connection', function (socket) {
                                   jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
-                                      // console.error(err);
-                                  });
                               }
                           } else if (results[0][n].tag == "ADV") {
                               // console.log(obj);
@@ -182,10 +166,6 @@ io.on('connection', function (socket) {
                                   obj.adv.push(results[0][n].text);
 
                                   jsonfile.writeFile(file, obj, function (err) {
-                                      // console.error(err);
-                                  });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -203,10 +183,6 @@ io.on('connection', function (socket) {
                                   jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
-                                      // console.error(err);
-                                  });
                               }
                           } else if (results[0][n].tag == "ADP") {
                               // console.log(obj);
@@ -220,10 +196,6 @@ io.on('connection', function (socket) {
                                   obj.adp.push(results[0][n].text);
 
                                   jsonfile.writeFile(file, obj, function (err) {
-                                      // console.error(err);
-                                  });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -241,10 +213,6 @@ io.on('connection', function (socket) {
                                   jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
-                                      // console.error(err);
-                                  });
                               }
                           } else if (results[0][n].tag == "PUNCT") {
                               // console.log(obj);
@@ -260,8 +228,19 @@ io.on('connection', function (socket) {
                                   jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
+                              }
+                          } else if (results[0][n].tag == "NUM") {
+                              // console.log(obj);
+                              var existed = false;
+                              for (var m = 0; m < obj.num.length; m++) {
+                                  if (obj.num[m] == results[0][n].text) {
+                                      existed = true;
+                                  }
+                              }
+                              if (existed == false) {
+                                  obj.num.push(results[0][n].text);
 
-                                  jsonfile.writeFile(file2, obj, function (err) {
+                                  jsonfile.writeFile(file, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -276,10 +255,6 @@ io.on('connection', function (socket) {
                                   obj.x.push(results[0][n].text);
 
                                   jsonfile.writeFile(file, obj, function (err) {
-                                      // console.error(err);
-                                  });
-
-                                  jsonfile.writeFile(file2, obj, function (err) {
                                       // console.error(err);
                                   });
                               }
@@ -307,6 +282,10 @@ io.on('connection', function (socket) {
                           newSentence += obj.punct[Math.floor(Math.random() * obj.punct.length)];
                       } else if (results[0][n].tag == "X") {
                           newSentence += obj.x[Math.floor(Math.random() * obj.x.length)];
+                      } else if (results[0][n].tag == "X") {
+                          newSentence += obj.x[Math.floor(Math.random() * obj.x.length)];
+                      } else if (results[0][n].tag == "NUM") {
+                          newSentence += obj.num[Math.floor(Math.random() * obj.x.length)];
                       }
                       newSentence += ' ';
                   }
