@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+        <span class="question">?</span>
+      </div>
+      <input class="inputMessage" placeholder="Type here..."/>
+    </li>
+    <li class="login page">
+    <embed src="music.mp3" width="0" height="0" loop="none" autostart="true" hidden="true" />
+      <div class="form">
+        <h1 class="headlogo">SWERDZ</h1>
+        <h3 class="title">PicK A nicKnaMe!!!</h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+
+    <li class="help page">
+        <audio id="bgMusic" src="./music/1.mp3">
+        </audio>
+        <div class="conthelp">
+          <span class="close">x</span>
+          <div class="texthelp">
+            <p>"The medium is the message"</p>
+            <p>Marshall McLuhan</p>
+            <p>...</p>
+            <p>If people don't fully understand the medium they won't fully understand the message</p>
+            <p>...</p>
+            <p> "Use a "gif". It's worth a thousand words."</p>
+            <p>Tess Flanders</p>
+            <p> "You wanna change a music?"</p>
+            <p>type "mus"</p>
+            <p id="vocabulary"></p>
+          </div>
+          <div class="backhelp"></div>
+        </div>
+    </li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>

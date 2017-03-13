@@ -1,0 +1,75 @@
+{
+    "noun": [
+        "frog",
+        "snake",
+        "eggplant",
+        "sweet",
+        "Dylan",
+        "computer",
+        "mus",
+        "fuck",
+        "girl"
+    ],
+    "verb": [
+        "suck",
+        "is",
+        "am",
+        "know",
+        "love"
+    ],
+    "adj": [
+        "attractive",
+        "ugly"
+    ],
+    "pron": [
+        "you",
+        "I",
+        "it",
+        "i",
+        "me",
+        "they",
+        "what"
+    ],
+    "adv": [
+        "very",
+        "back",
+        "well",
+        "now",
+        "so"
+    ],
+    "det": [
+        "a",
+        "the",
+        "this"
+    ],
+    "adp": [
+        "because",
+        "to",
+        "that"
+    ],
+    "conj": [
+        "and",
+        "so"
+    ],
+    "punct": [
+        "!",
+        "?",
+        ",",
+        "...",
+        "."
+    ],
+    "x": [
+        "behbeh",
+        "hello",
+        "OK",
+        "na",
+        "pewpew",
+        "Hi",
+        "hehe",
+        "nuil",
+        "hahaha",
+        "haha",
+        "oh",
+        "hey"
+    ]
+}
