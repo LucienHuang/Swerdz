@@ -159,8 +159,6 @@ app.main = (function() {
       // newName = test;
       $('.login.page').fadeOut();
       $('.chat.page').show();
-      $('#bgMusic')[0].volume = 0.1;
-      $('#bgMusic')[0].play();
       // Tell the server your username
       socket.emit('add user', username);
       iUser = username;
@@ -209,13 +207,6 @@ app.main = (function() {
           if(isWord==true){
             if(newWord=="gif"){
                 isImg = true;
-            }else if(newWord=="mus"){
-              $('#bgMusic')[0].pause();
-              $('#bgMusic')[0].src = "./music/"+musCount+".mp3";
-              $('#bgMusic')[0].play();
-              musCount++;
-              if(musCount>12) musCount = 1;
-              isMus = true;
             }
             newWord = "";
             newWord += message.charAt(i);
@@ -225,15 +216,6 @@ app.main = (function() {
             newWord+= message.charAt(i);
           }
         }
-      }
-      
-      if(message=="mus"){
-              $('#bgMusic')[0].pause();
-              $('#bgMusic')[0].src = "./music/"+musCount+".mp3";
-              $('#bgMusic')[0].play();
-              musCount++;
-              if(musCount>12) musCount = 1;
-              isMus = true;
       }
       // if(newWord!=""){
       //   for(var j = 0; j<words.length; j++){
@@ -286,7 +268,11 @@ app.main = (function() {
   // Adds the visual chat message to the message list
   var addChatMessage = function(data) {
     var $usernameDiv = $('<span class="username"/>').text(data.username);
-    var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    if(data.username==iUser){
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.orimessage);
+    }else{
+      var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
+    }
 
     var talkMsg = new SpeechSynthesisUtterance(data.message);
     var voices = window.speechSynthesis.getVoices();

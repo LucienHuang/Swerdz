@@ -294,7 +294,8 @@ io.on('connection', function (socket) {
 
                   io.emit('new message', {
                       username: socket.username,
-                      message: newSentence
+                      message: newSentence,
+                      orimessage: message
 
                       // message: data
                   });
